@@ -26,7 +26,7 @@ class LineBotController extends Controller
 //        $noLimit = !strpos($dialog->content(), 'Vague response');
 
         //將以上拿到的資訊寫進log裡，debug用
-        Log::info($request->input());
+        Log::info(env('LINEBOT_SECRET'));
         Log::info('message is : ' . $text);
         $reply = new TextMessageBuilder($text);
         $bot->replyMessage($request->events[0]['replyToken'], $reply);
